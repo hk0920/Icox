@@ -1,0 +1,545 @@
+@import url(reset.css);
+/*main.css*/
+
+
+/*common*/
+@font-face{font-family:'NanumGothic'; src:url('../font/나눔고딕B.ttf');}
+@font-face{font-family:'NanumGothicEB'; src:url('../font/NanumGothicExtraBold.woff');}
+body{font-size:14px;font-family:'NanumGothic',sans-serif;}
+a{text-decoration:none;color:#999;}
+a:hover{color:#666;}
+
+/*순서는 pc - tablet - mabile 순으로 하는게 좋다.*/
+
+/*모바일*/
+@media (max-width:767px) {/*최소 ~ 최대 767, 스마트폰 크기*/
+
+/*layout*/
+body{}
+body > header{z-index:40; position:relative; width:95%; margin:0 auto;}/* 자식 / 부모 * 100 = % */
+body > section{z-index:30;position:relative; width:95%; margin:0 auto;}
+	#container{width:95%;margin:0 auto; border-top:3px double #ccc;padding:30px 0;}
+	#container:after{content:"";display:block;clear:both;}
+		.content1{display:none;}
+		.content2{position:relative;width:100%;}
+		.content3{width:100%; padding:20px 0 0 10px; box-sizing:border-box;}
+
+/*box-sizing:border-box; : 유동적으로 변하는 태블릿같은경우 width값을 100%로해 준 후 padding,border를 넣어주면 실제크기가 100%보다 더 커지기 때문에 그때 써주는요소
+    						이런 경우 padding,border를 넣어도 실제크기가 안커진다./단,padding,border만 적용되고 margin은 적용안된다.*/
+
+body > footer{background:url(../images/foot_bg.gif) repeat-x 0 0;}
+	.foot_inner{position:relative;width:95%;margin:0 auto;padding:20px 0; color:#999;}
+
+/*header*/
+body > header > h1{text-align:center;padding-top:17px;}
+body > header > h2{text-align:center; margin-bottom:14px;font-size:9px;color:#555;}
+
+
+/*탑메뉴*/
+.topMenu{display:none;}
+
+/*form*/
+body > header > form{width:98%;margin:0 auto;margin-bottom:10px;}
+body > header > form:after{content:"";display:block; clear:both;}
+body > header > form input[type="search"]{float:left;width:83%;height:19px; border:1px solid #ccc;}
+body > header > form input[type="image"]{float:right;}
+body > header > form > fieldset > input{vertical-align:middle;}
+
+/*주메뉴*/
+nav.gnb{z-index:40; position:relative; width:98%;}/* 부모를 기준으로 % 지정 */
+nav.gnb:after{content:""; display:block; clear:both;}
+nav.gnb > ul{width:100%;border-top:2px solid #3ca6da;border-bottom:2px solid #3ca6da;}
+nav.gnb > ul:after{content:"";display:block; clear:both;}
+nav.gnb > ul li{float:left;}
+nav.gnb > ul > li{width:50%; height:39px; border-right:1px solid #9a9a9a; border-bottom:1px solid #9a9a9a;box-sizing:border-box; background:#efefef;text-align:center;}
+nav.gnb > ul > li:nth-of-type(2),nav.gnb > ul > li:nth-of-type(4){border-right:none;}
+nav.gnb > ul > li:nth-of-type(3),nav.gnb > ul > li:nth-of-type(4){border-bottom:none;}
+
+nav.gnb > ul > li > a{display:block;height:29px;padding-top:10px;color:#525353;}
+
+
+nav.gnb > ul li ul{display:none;}
+
+
+
+
+/*전체메뉴 버튼*/
+nav.gnb > div{width:100%;text-align:center;}
+nav.gnb > div a{display:block;height:26px;padding-top:13px;color:#fff;
+				background:url(../images/btn_allmenu.png) no-repeat 50% 0;}
+
+
+/*전체메뉴*/
+nav.allMenu_box{display:none;z-index:40; width:86%; border:3px solid #369;position:absolute;left:7%;top:203px;
+				background:#fff; padding-top:10px;}
+nav.allMenu_box > ul{width:94%; margin:0 auto;padding-bottom:5px;}
+nav.allMenu_box > ul:after{content:"";display:block;clear:both;}
+nav.allMenu_box > ul > li{width:100%; border-bottom:1px dashed #ccc; padding:5px 0;}
+nav.allMenu_box > ul > li:last-child{border-bottom:none;}
+nav.allMenu_box > ul > li:after{content:"";display:block;clear:both;}
+nav.allMenu_box > ul > li > a{float:left;width:33%;font-size:11px;font-weight:bold;color:#555;background:#eee;text-align:center;line-height:1.5;}
+
+nav.allMenu_box > ul > li ul{float:right;width:65%;}
+nav.allMenu_box > ul > li ul li{float:left;padding:0 5% 0 0;font-size:10px;}
+
+
+/*전체 메뉴 닫기*/
+nav.allMenu_box > a.all_close{display:block; width:100%;text-align:center;padding:5px;box-sizing:border-box;background:#369;color:#fff;}
+nav.allMenu_box > a.all_close:hover{color:#fff;}
+
+
+
+
+/*신간추천*/
+body > section{overflow:hidden;} 
+body > section > div.book_frame{width:200%; position:relative; left:0; top:0;}
+body > section > div.book_frame:after{content:"";display:block;clear:both;}
+
+div.book_frame > section{float:left;width:50%;padding-top:30px;}
+
+div.book_frame > section > h3{float:right;width:48.7%;padding-right:7%;}
+div.book_frame > section > ul{width:100%;}/* 1003px */
+div.book_frame > section > ul:after{content:"";display:block;clear:both;}
+div.book_frame > section > ul > li:first-child{float:left;width:27%;padding-left:8%;}
+div.book_frame > section > ul > li:nth-child(2){float:right;width:48.7%;padding:2% 7% 0 0;}
+div.book_frame > section > ul > li:last-child{float:right;width:42.87%; padding:5% 7% 0 0;}
+div.book_frame > section > ul > li:last-child img{width:51%;}/*이미지를 줄이고 싶을때는 width값을 % 값을 지정*/
+
+div.arrow a{position:absolute;top:28%;}
+div.arrow a.prev{left:0;}
+div.arrow a.next{right:0;}
+
+ul.book_roll{position:absolute;left:48%;bottom:0;}
+ul.book_roll li{display:inline;}
+ul.book_roll li img{width:8px;}
+
+
+/*container*/
+/*content1*/
+
+
+
+/* content2 */
+
+/* tabMenu 탭메뉴 */
+.content2 > section > h2.t1{position:absolute;top:-37px;left:10px;}
+.content2 > section > h2.t2{position:absolute;top:-37px;left:130px;}
+.content2 > section > div{margin-top:37px;padding:20px 10px 0;border-top:1px solid #aaa;}
+
+.content2 > section > div.item1{display:none;}
+
+/*새로나온 책*/
+.content2 > section > div article{font-size:13px;}
+.content2 > section > div > a:first-child > article{margin-bottom:20px;}
+.content2 > section > div article:after{content:"";display:block;clear:both;}
+
+.content2 > section > div article header h1{float:left;width:85px;}
+.content2 > section > div article header h2{color:#333;margin-left:100px;}
+.content2 > section > div article header + p{margin-left:100px;padding-top:10px;padding-bottom:10px;line-height:150%;color:#999;}/* + : 인접형제선택자*/
+
+.content2 > section > div article footer{margin-left:100px;width:79%;}
+.content2 > section > div article footer strong{color:#f60;}
+
+
+/*새로나온 소식*/
+.content2 > section > div ul li{border-bottom:1px solid #ccc; color:#999; font-size:12px; padding:8px 0;background:url(../images/bul_icon.gif) no-repeat 0 50%;text-indent:10px;}
+.content2 > section > div ul li a:hover{color:#069;}
+.content2 > section > div ul li span{position:absolute;right:20px;}
+
+
+/*content3*/
+
+.content3 > p{display:none;}
+.content3 > article{width:100%;}
+
+.content3 h2{padding-bottom:10px;}
+.content3 ul li:first-of-type video{display:block;width:90%;height:90%; margin:0 auto;}
+.content3 ul li:last-of-type{width:100%;line-height:150%;}
+.content3 ul li a{font-size:12px;color:#999;}
+.content3 ul li span{display:block;color:#333;}
+
+
+/*footer*/
+.foot_inner address span{display:block;font-size:12px;}
+.foot_inner ul{width:100%;padding-top:10px;}
+.foot_inner ul:after{content:"";display:block; clear:both;}
+.foot_inner ul li{width:50%;float:left;}
+.foot_inner ul li img{width:100%;}
+
+
+
+
+}
+
+
+
+
+/*태블릿*/
+
+@media (min-width:768px) and (max-width:1023px) {/* 최소 768 ~ 1023, 태블릿 크기 */
+												/*태블릿부터는 pc와 다르게 늘어나고 줄어들기 때문에 px 단위로 지정하는게 아니라 %로 지정한다.유동적으로 해줘야 하기 때문에*/
+												/* % 로 지정을 했기 때문에 무한정으로 늘어날수있다. 이 경우 ***max-width*** 를 써준다. 
+												container같은 경우 서브페이지마다 내용이 다르기 때문에 짧은 애들은 footer가 위에 가서 붙기때문에 이경우 **min-heihgt:1000px;**을 (최소 높이) 넣어준다. */
+/*layout*/
+body{background:url(../images/body_bg.gif) repeat-x 0 0;}
+body > header{z-index:40; position:relative; width:95%; margin:0 auto;}/* 자식 / 부모 * 100 = % */
+body > section{z-index:30;position:relative; width:95%; margin:0 auto;}
+	#container{width:95%;margin:0 auto; border-top:3px double #ccc;padding:30px 0;}
+	#container:after{content:"";display:block;clear:both;}
+		.content1{float:left;width:23.5%;max-width:201px;padding:0 0 20px 10px; box-sizing:border-box;}
+		.content2{position:relative;float:right;width:73%;}
+		.content3{clear:both;width:100%;padding:20px 0 0 10px;border-top:3px double #ccc; box-sizing:border-box;}
+
+/*box-sizing:border-box; : 유동적으로 변하는 태블릿같은경우 width값을 100%로해 준 후 padding,border를 넣어주면 실제크기가 100%보다 더 커지기 때문에 그때 써주는요소
+    						이런 경우 padding,border를 넣어도 실제크기가 안커진다./단,padding,border만 적용되고 margin은 적용안된다.*/
+
+body > footer{background:url(../images/foot_bg.gif) repeat-x 0 0;}
+	.foot_inner{position:relative;width:95%;margin:0 auto;padding:20px 0; color:#999;}
+
+/*header*/
+body > header > h1{padding-top:27px;}
+body > header > h2{margin-bottom:18px; font-size:9px;color:#555;}
+
+/*탑메뉴*/
+.topMenu{position:absolute;top:20px;right:0;}
+.topMenu dd{display:inline;padding-left:20px;}
+
+/*form*/
+body > header > form{position:absolute;right:0;top:60px; text-align:right;}
+body > header > form > fieldset > input{vertical-align:middle;}
+
+/*주메뉴*/
+nav.gnb{z-index:40; position:relative; width:95%;}/* 부모를 기준으로 % 지정 */
+nav.gnb:after{content:""; display:block; clear:both;}
+nav.gnb > ul{float:left; height:70px; width:80%;}
+nav.gnb > ul li{float:left;}
+nav.gnb > ul > li{width:25%; height:39px; border-right:1px solid #06c; box-sizing:border-box; background:#3da7bd; text-align:center;}
+nav.gnb > ul > li > a{display:block;height:29px;padding-top:10px;color:#fff;}
+nav.gnb > ul > li:hover > a{background:url(../images/over_icon.gif) no-repeat 50% 100%;height:32px;}
+
+nav.gnb > ul li ul{display:none;position:absolute;top:38px;left:0; padding:5px 0;}
+nav.gnb > ul li:hover ul{display:block;}
+
+
+nav.gnb > ul li:nth-of-type(1) > ul{left:1.5%;}/* 부모인 nav를 기준으로 작은 ul이 나올 길이를 % 값 계산*/
+nav.gnb > ul li:nth-of-type(2) > ul{left:20%;}
+nav.gnb > ul li:nth-of-type(3) > ul{left:35%;}
+nav.gnb > ul li:nth-of-type(4) > ul{left:58%;}
+
+nav.gnb li ul li{padding:0 10px;}
+nav.gnb li ul li a:hover{color:#333;}
+
+
+
+/*전체메뉴 버튼*/
+nav.gnb > div{float:left;width:20%;text-align:center;}
+nav.gnb > div a{display:block;height:26px;padding-top:13px;color:#fff;
+				background:#3da7bd url(../images/btn_allmenu.png) no-repeat 50% 0;}
+
+
+/*전체메뉴*/
+nav.allMenu_box{display:none;z-index:40; width:86%; border:5px solid #369;position:absolute;left:7%;top:105px;
+				background:#fff; padding-top:10px;}
+nav.allMenu_box > ul{width:94%; margin:0 auto;padding-bottom:5px;}
+nav.allMenu_box > ul:after{content:"";display:block;clear:both;}
+nav.allMenu_box > ul > li{width:100%; border-bottom:1px dashed #ccc; padding:5px 0;}
+nav.allMenu_box > ul > li:last-child{border-bottom:none;}
+nav.allMenu_box > ul > li:after{content:"";display:block;clear:both;}
+nav.allMenu_box > ul > li > a{float:left;width:33%;font-size:16px;font-weight:bold;color:#555;background:#eee;text-align:center;line-height:1.8;}
+
+nav.allMenu_box > ul > li ul{float:right;width:65%;}
+nav.allMenu_box > ul > li ul li{float:left;padding:5px 5% 5px 0;}
+
+
+/*전체 메뉴 닫기*/
+nav.allMenu_box > a.all_close{display:block; width:100%;text-align:center;padding:5px;box-sizing:border-box;background:#369;color:#fff;}
+nav.allMenu_box > a.all_close:hover{color:#fff;}
+
+
+
+
+/*신간추천*/
+body > section{overflow:hidden;} 
+body > section > div.book_frame{width:200%; position:relative; left:0; top:0;}
+body > section > div.book_frame:after{content:"";display:block;clear:both;}
+
+div.book_frame > section{float:left;width:50%;padding-top:30px;}
+
+div.book_frame > section > h3{float:right;width:48.7%;padding-right:5%;}
+div.book_frame > section > ul{width:100%;}/* 1003px */
+div.book_frame > section > ul:after{content:"";display:block;clear:both;}
+div.book_frame > section > ul > li:first-child{float:left;width:27%;padding-left:5%;}
+div.book_frame > section > ul > li:nth-child(2){float:right;width:48.7%;padding:5% 5% 0 0;}
+div.book_frame > section > ul > li:last-child{float:right;width:42.87%; padding:5% 6.5% 0 0;}
+div.book_frame > section > ul > li:last-child img{width:51%;}/*이미지를 줄이고 싶을때는 width값을 % 값을 지정*/
+
+div.arrow a{position:absolute;top:38%;}
+div.arrow a.prev{left:0;}
+div.arrow a.next{right:0;}
+
+ul.book_roll{position:absolute;left:48%;bottom:0;}
+ul.book_roll li{display:inline;}
+
+
+/*container*/
+/*content1*/
+/*로그인*/
+div.login form{position:relative;margin-bottom:10px;width:100%;}/* h2와 form이 떨어져 있을 경우 height 값을 잡아주면 된다.*/
+div.login form fieldset{padding:10px 4px 8px 5px;border:1px solid #ccc;} 
+div.login input[type="image"],div.login input[type="submit"]{position:absolute;right:5px;top:12px;}/* 속성선택자 : [] */
+
+/*우선순위가 같을 경우 css는 순차적용이 된다. 그런데 무조건 속성값안에 height:50px !important;를 할경우 !important의 우선순위가 1000점!최강우선순위*/
+
+/* :not(){} , [속성="값"] */
+div.login form input:not([type="image"]){width:60%; height:22px; border:1px solid #ccc; border-radius:4px; margin:2px 0 3px;}
+
+div.login form input[type="submit"]{width:54px; height:50px; border:1px solid #096d9b; border-radius:7px; color:#fff; font-weight:bold; text-align:center;
+									background:#059fe2;
+									background:linear-gradient(to bottom,#059fe2 0%,#0079e1 100%);
+									background:-moz-linear-gradient(top,#059fe2 0%,#0079e1 100%);
+									background:-webkit-linear-gradient(top,#059fe2 0%,#0079e1 100%);}	
+
+
+
+
+div.login form ul{width:100%;padding:10px 0 5px;}
+div.login form ul li{background:url(../images/bul_login.gif)no-repeat 0 50%;text-indent:5px;}
+div.login form ul li a{font-size:12px; font-family:'NanumGothic';color:#999;}
+div.login form ul li a:hover{color:#333;}
+
+
+/*베너*/
+ul.banner{}
+ul.banner li{padding-top:5px; text-align:center;}
+
+
+/* content2 */
+
+/* tabMenu 탭메뉴 */
+.content2 > section > h2.t1{position:absolute;top:0;left:10px;}
+.content2 > section > h2.t2{position:absolute;top:0;left:130px;}
+.content2 > section > div{margin-top:37px;padding:40px 10px 0;border-top:1px solid #aaa;}
+
+.content2 > section > div.item2{display:none;}
+
+/*새로나온 책*/
+.content2 > section > div article{font-size:13px;}
+.content2 > section > div > a:first-child > article{margin-bottom:40px;}
+.content2 > section > div article:after{content:"";display:block;clear:both;}
+
+.content2 > section > div article header h1{float:left;width:85px;}
+.content2 > section > div article header h2{float:right;width:79%;color:#333;}
+.content2 > section > div article header + p{float:right; width:79%;padding-top:10px;padding-bottom:10px;line-height:150%;color:#999;}/* + : 인접형제선택자*/
+
+.content2 > section > div article footer{float:right;width:79%;}
+.content2 > section > div article footer strong{color:#f60;}
+
+
+/*새로나온 소식*/
+.content2 > section > div ul li{border-bottom:1px solid #ccc; color:#999; padding:8px 0;background:url(../images/bul_icon.gif) no-repeat 0 50%;text-indent:10px;}
+.content2 > section > div ul li a:hover{color:#069;}
+.content2 > section > div ul li span{position:absolute;right:20px;}
+
+
+/*content3*/
+.content3:after{content:"";display:block;clear:both;}
+.content3 > p{float:left;width:23.5%; max-width:201px;}
+.content3 > article{float:right;width:73%;}
+
+.content3 h2{padding-bottom:10px;}
+.content3 ul li{float:left;}
+.content3 ul li:last-of-type{width:38.5%;padding:20px 0  0 16px;line-height:150%;}
+.content3 ul li a{font-size:12px;color:#999;}
+.content3 ul li span{display:block;color:#333;}
+
+
+/*footer*/
+.foot_inner address span{display:block;font-size:12px;}
+.foot_inner ul{position:absolute;top:20px;right:0;}
+.foot_inner ul li{display:inline;padding:0 5px;}
+
+
+
+}
+
+
+/* pc */
+
+@media (min-width:1024px) {/* 최소 1024 ~최대, pc크기 */
+/*layout*/
+body{background:url(../images/body_bg.gif) repeat-x 0 0;}
+body > header{z-index:40; position:relative; width:1003px; margin:0 auto;}
+body > section{z-index:30;position:relative; width:1003px; margin:0 auto;}
+	#container{width:1003px;margin:0 auto; border-top:3px double #ccc;padding:30px 0;}
+	#container:after{content:"";display:block;clear:both;}
+		.content1{float:left;width:201px;padding:0 35px 0 10px;}
+		.content2{position:relative;float:left;width:470px;}
+		.content3{float:right;width:248px;padding-right:10px;}
+body > footer{background:url(../images/foot_bg.gif) repeat-x 0 0;}
+	.foot_inner{position:relative;width:1003px;margin:0 auto;padding:20px 0; color:#999;}
+
+/*header*/
+body > header > h1{padding-top:27px;}
+body > header > h2{margin-bottom:18px; font-size:9px;color:#555;}
+
+/*탑메뉴*/
+.topMenu{position:absolute;top:20px;right:0;}
+.topMenu dd{display:inline;padding-left:20px;}
+
+/*form*/
+body > header > form{position:absolute;right:0;top:60px; text-align:right;}
+body > header > form > fieldset > input{vertical-align:middle;}
+/*주메뉴*/
+nav.gnb{z-index:40; position:relative; width:100%;}
+nav.gnb:after{content:""; display:block; clear:both;}
+nav.gnb > ul{float:left; height:70px;}
+nav.gnb > ul li{float:left;}
+nav.gnb > ul > li{width:205px;height:39px;margin-right:1px; background:#3da7bd; text-align:center;}
+nav.gnb > ul > li > a{display:block;height:29px;padding-top:10px;color:#fff;}
+/*nav.gnb > ul > li:hover > a{background:url(../images/over_icon.gif) no-repeat 50% 100%; height:32px;}*/
+
+nav.gnb > ul li ul{display:none;position:absolute;top:38px;left:0; padding:5px 0;}
+/*nav.gnb > ul li:hover ul{display:block;}*/
+
+
+nav.gnb > ul li:nth-of-type(1) > ul{left:40px;}
+nav.gnb > ul li:nth-of-type(2) > ul{left:230px;}
+nav.gnb > ul li:nth-of-type(3) > ul{left:405px;}
+nav.gnb > ul li:nth-of-type(4) > ul{left:640px;}
+
+nav.gnb li ul li{padding:0 10px;}
+nav.gnb li ul li a:hover{color:#333;}
+
+
+
+/*전체메뉴 버튼*/
+nav.gnb > div{float:left;width:179px;text-align:center;}
+nav.gnb > div a{display:block;height:26px;padding-top:13px;color:#fff;
+				background:#3da7bd url(../images/btn_allmenu.png) no-repeat 50% 0;}
+
+
+/*전체메뉴*/
+nav.allMenu_box{display:none;z-index:40;width:850px; border:5px solid #369;position:absolute;left:40px;top:105px;
+				background:#fff url(../images/allMenu_bg.gif) repeat-x 0 0;padding:20px;}
+nav.allMenu_box > ul{width:850px;}
+nav.allMenu_box > ul:after{content:"";display:block;clear:both;}
+nav.allMenu_box > ul > li{float:left;width:140px;padding:0 30px;}
+nav.allMenu_box > ul > li > a{font-size:16px;font-weight:bold;color:#555;}
+
+nav.allMenu_box > ul > li ul{width:100px;padding-top:20px;}
+nav.allMenu_box > ul > li ul li{border-bottom:1px dashed #ccc;padding:5px 0;}
+
+
+/*전체 메뉴 닫기*/
+nav.allMenu_box > a.all_close{position:absolute;right:0;bottom:0; padding:5px;background:#369;color:#fff;}
+nav.allMenu_box > a.all_close:hover{color:#fff;}
+
+
+
+
+/*신간추천*/
+body > section{overflow:hidden;} 
+body > section > div.book_frame{width:200%; position:relative; left:0; top:0;}
+body > section > div.book_frame:after{content:"";display:block;clear:both;}
+
+div.book_frame > section{float:left;width:50%;padding-top:30px;}
+
+div.book_frame > section > h3{float:right;padding-right:50px;}
+div.book_frame > section > ul{width:100%;}
+div.book_frame > section > ul:after{content:"";display:block;clear:both;}
+div.book_frame > section > ul > li:first-child{float:left;width:273px;padding-left:50px;}
+div.book_frame > section > ul > li:nth-child(2){float:right;width:489px;padding:50px 50px 0 0;}
+div.book_frame > section > ul > li:last-child{float:right;width:430px; padding:50px 65px 0 0;}
+
+div.arrow a{position:absolute;top:120px;}
+div.arrow a.prev{left:0;}
+div.arrow a.next{right:0;}
+
+ul.book_roll{position:absolute;left:48%;bottom:0;}
+ul.book_roll li{display:inline;}
+
+
+/*container*/
+/*content1*/
+/*로그인*/
+div.login form{position:relative;margin-bottom:10px;width:100%;}/* h2와 form이 떨어져 있을 경우 height 값을 잡아주면 된다.*/
+div.login form fieldset{padding:10px 15px;border:1px solid #ccc;} 
+div.login input[type="image"],div.login form input[type="submit"]{position:absolute;right:10px;top:12px;}/* 속성선택자 : [] */
+
+/* :not(){} , [속성="값"] */
+
+div.login form input:not([type="image"]){width:105px;height:22px;border:1px solid #ccc;border-radius:4px;margin:2px 0 3px;}
+
+div.login form input[type="submit"]{width:54px; height:50px; border:1px solid #096d9b; border-radius:7px; color:#fff; font-weight:bold; text-align:center;
+									background:#059fe2;
+									background:linear-gradient(to bottom,#059fe2 0%,#0079e1 100%);
+									background:-moz-linear-gradient(top,#059fe2 0%,#0079e1 100%);
+									background:-webkit-linear-gradient(top,#059fe2 0%,#0079e1 100%);}	
+
+div.login form ul{width:100%;padding:10px 0 5px;}
+div.login form ul:after{content:"";display:block;clear:both;}
+div.login form ul li:first-of-type{float:left;}
+div.login form ul li:last-of-type{float:right;}
+div.login form ul li a{font-size:12px; font-family:'NanumGothic';color:#999;}
+div.login form ul li a:hover{color:#333;}
+
+
+/*베너*/
+ul.banner{}
+ul.banner li{padding-top:5px; text-align:center;}
+
+
+/* content2 */
+
+/* tabMenu 탭메뉴 */
+.content2 > section > h2.t1{position:absolute;top:0;right:131px;}
+.content2 > section > h2.t2{position:absolute;top:0;right:11px;}
+.content2 > section > div{margin-top:37px;padding:40px 10px 0;border-top:1px solid #aaa;}
+
+.content2 > section > div.item1{display:none;}
+
+/*새로나온 책*/
+.content2 > section > div article{font-size:13px;}
+.content2 > section > div > a:first-child > article{margin-bottom:40px;}
+.content2 > section > div article:after{content:"";display:block;clear:both;}
+
+.content2 > section > div article header h1{float:left;width:85px;}
+.content2 > section > div article header h2{float:right;width:340px;color:#333;}
+.content2 > section > div article header + p{float:right; width:340px;padding-top:10px;padding-bottom:10px;line-height:150%;color:#999;}/* + : 인접형제선택자*/
+
+.content2 > section > div article footer{float:right;width:340px;}
+.content2 > section > div article footer strong{color:#f60;}
+
+
+/*새로운 소식*/
+.content2 > section > div ul li{border-bottom:1px solid #ccc; color:#999; padding:8px 0;background:url(../images/bul_icon.gif) no-repeat 0 50%;text-indent:10px;}
+.content2 > section > div ul li a:hover{color:#069;}
+.content2 > section > div ul li span{position:absolute;right:20px;}
+
+
+/*content3*/
+.content3 h2{padding:10px 0;}
+.content3 ul li:last-of-type{padding-top:10px;}
+.content3 ul li a{font-size:12px;color:#999;}
+.content3 ul li span{display:block;color:#333;}
+
+
+/*footer*/
+.foot_inner address span{display:block;font-size:12px;}
+.foot_inner ul{position:absolute;top:20px;right:0;}
+.foot_inner ul li{display:inline;padding:0 5px;}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
